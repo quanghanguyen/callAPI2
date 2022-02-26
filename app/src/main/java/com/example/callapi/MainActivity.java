@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvTime;
     private TextView tvPrivacy;
 
+    ListView lvName;
+    ArrayList<String> arrayName;
+    ArrayAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         tvQuotes = (TextView) findViewById(R.id.tvQuotes);
         tvTime = (TextView) findViewById(R.id.tvTime);
         tvPrivacy = (TextView) findViewById(R.id.tvPrivacy);
+
+        lvName = (ListView) findViewById(R.id.lvName);
+        arrayName = new ArrayList<>();
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayName);
+
+        AddArrayName();
+        lvName.setAdapter(adapter);
 
         ApiService.apiService.convert("843d4d34ae72b3882e3db642c51e28e6","VND", "USD", 1).enqueue(new Callback<Currency>() {
             @Override
@@ -80,4 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void AddArrayName() {
+        arrayName.add("Toan");
+        arrayName.add("Hoa");
+        arrayName.add("Sinh");
+        arrayName.add("Su");
+    }
 }
