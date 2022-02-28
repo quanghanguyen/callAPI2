@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
         tvTime = (TextView) findViewById(R.id.tvTime);
         tvPrivacy = (TextView) findViewById(R.id.tvPrivacy);
 
-        lvName = (ListView) findViewById(R.id.lvName);
-        arrayName = new ArrayList<>();
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayName);
+//        lvName = (ListView) findViewById(R.id.lvName);
+//        arrayName = new ArrayList<>();
+//        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayName);
 
-        AddArrayName();
-        lvName.setAdapter(adapter);
+//        AddArrayName();
+//        lvName.setAdapter(adapter);
 
         ApiService.apiService.convert("843d4d34ae72b3882e3db642c51e28e6","VND", "USD", 1).enqueue(new Callback<Currency>() {
             @Override
@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void AddArrayName() {
-        arrayName.add("Toan");
-        arrayName.add("Hoa");
-        arrayName.add("Sinh");
-        arrayName.add("Su");
-    }
+//    private void AddArrayName() {
+//        arrayName.add("Toan");
+//        arrayName.add("Hoa");
+//        arrayName.add("Sinh");
+//        arrayName.add("Su");
+//    }
 }
